@@ -1,6 +1,6 @@
 /* =========================================================
-   KAMALESH V — MODERN TECH / AI RESUME
-   A4 ONE-PAGE • RESPONSIVE • PRINT FRIENDLY
+   KAMALESH V — PERSONAL AI ENGINEER RESUME
+   FUTURISTIC • CLEAN • RESPONSIVE • A4 PRINT READY
 ========================================================= */
 
 * {
@@ -10,21 +10,54 @@
 }
 
 :root {
+    --bg: #e9eef5;
+    --paper: #ffffff;
+
     --navy: #07111f;
     --navy-2: #0b1728;
+    --navy-3: #10243a;
+
+    --cyan: #00e5ff;
+    --cyan-2: #00bcd4;
     --blue: #2563eb;
-    --cyan: #00d9ff;
-    --cyan-soft: #00bcd4;
+
     --text: #172033;
     --muted: #64748b;
-    --light: #f4f7fb;
-    --border: #dce4ee;
-    --white: #ffffff;
+
+    --border: #dce5ef;
+    --soft: #f5f8fb;
+
+    --shadow:
+        0 20px 60px rgba(7, 17, 31, 0.15);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #e9eef5;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 229, 255, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(37, 99, 235, 0.08),
+            transparent 30%
+        ),
+        var(--bg);
+
     color: var(--text);
+
     font-family:
         Inter,
         -apple-system,
@@ -38,18 +71,20 @@ body {
 
 
 /* =========================================================
-   MAIN RESUME
+   RESUME PAPER
 ========================================================= */
 
 .resume {
     width: 210mm;
     min-height: 297mm;
-    margin: 20px auto;
 
-    background: var(--white);
+    margin: 25px auto;
 
-    box-shadow:
-        0 15px 45px rgba(7, 17, 31, 0.15);
+    background: var(--paper);
+
+    box-shadow: var(--shadow);
+
+    position: relative;
 
     overflow: hidden;
 }
@@ -60,116 +95,142 @@ body {
 ========================================================= */
 
 .header {
-    background:
-        linear-gradient(
-            135deg,
-            #06101d 0%,
-            #0a1a2d 55%,
-            #0d2639 100%
-        );
+    position: relative;
+
+    padding: 27px 30px 21px;
 
     color: white;
 
-    padding: 25px 30px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #040b14 0%,
+            #071525 45%,
+            #0c253a 100%
+        );
 
-    position: relative;
     overflow: hidden;
 }
 
 
-/* subtle background glow */
+/* futuristic grid */
 
 .header::before {
     content: "";
+
     position: absolute;
 
-    width: 250px;
-    height: 250px;
+    inset: 0;
 
-    border-radius: 50%;
+    background-image:
+        linear-gradient(
+            rgba(0, 229, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.035) 1px,
+            transparent 1px
+        );
 
-    background: rgba(0, 217, 255, 0.08);
+    background-size: 25px 25px;
 
-    right: -100px;
-    top: -130px;
-
-    filter: blur(5px);
+    pointer-events: none;
 }
+
+
+/* cyan atmospheric glow */
 
 .header::after {
     content: "";
 
     position: absolute;
 
-    width: 180px;
-    height: 180px;
+    width: 280px;
+    height: 280px;
+
+    right: -110px;
+    top: -170px;
 
     border-radius: 50%;
 
-    border: 1px solid rgba(0, 217, 255, 0.12);
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 229, 255, 0.18),
+            transparent 68%
+        );
 
-    right: 35px;
-    bottom: -110px;
+    filter: blur(4px);
+
+    pointer-events: none;
 }
 
 
 /* =========================================================
-   HEADER MAIN
+   HEADER CONTENT
 ========================================================= */
 
 .header-main {
     display: flex;
+
     align-items: center;
+
     gap: 20px;
 
     position: relative;
+
     z-index: 2;
 }
 
 
 /* =========================================================
-   ROUND GLOWING PROFILE PHOTO
+   PROFILE IMAGE
 ========================================================= */
 
 .photo-wrapper {
-    width: 112px;
-    height: 112px;
+    width: 116px;
+    height: 116px;
+
+    padding: 4px;
 
     border-radius: 50%;
 
-    padding: 4px;
+    flex-shrink: 0;
 
     position: relative;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    flex-shrink: 0;
-
     background:
-        linear-gradient(
-            135deg,
-            #00e5ff,
-            #00bcd4,
-            #2563eb
+        conic-gradient(
+            from 0deg,
+            var(--cyan),
+            var(--blue),
+            #7c3aed,
+            var(--cyan)
         );
 
     box-shadow:
-        0 0 12px rgba(0, 229, 255, 0.65),
-        0 0 28px rgba(0, 188, 212, 0.35),
-        0 0 50px rgba(37, 99, 235, 0.25);
+        0 0 10px rgba(0, 229, 255, 0.8),
+        0 0 25px rgba(0, 229, 255, 0.55),
+        0 0 50px rgba(37, 99, 235, 0.35);
+
+    animation: profileGlow 4s ease-in-out infinite;
 }
 
 
-/* dark inner ring */
+/* inner dark circle */
 
 .photo-wrapper::before {
     content: "";
 
     position: absolute;
 
-    inset: 4px;
+    inset: 5px;
 
     border-radius: 50%;
 
@@ -179,23 +240,75 @@ body {
 }
 
 
-/* profile image */
+/* tiny orbit */
+
+.photo-wrapper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -8px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(0, 229, 255, 0.25);
+
+    animation: rotateRing 12s linear infinite;
+}
+
+
+/* image */
 
 .profile-photo {
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-    object-position: center;
-
     border-radius: 50%;
 
-    position: relative;
-    z-index: 1;
+    object-fit: cover;
+
+    object-position: center;
 
     border: 3px solid #07111f;
 
+    position: relative;
+
+    z-index: 1;
+
     display: block;
+}
+
+
+/* =========================================================
+   PROFILE ANIMATIONS
+========================================================= */
+
+@keyframes profileGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px rgba(0, 229, 255, 0.8),
+            0 0 25px rgba(0, 229, 255, 0.45),
+            0 0 50px rgba(37, 99, 235, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px rgba(0, 229, 255, 1),
+            0 0 35px rgba(0, 229, 255, 0.65),
+            0 0 65px rgba(37, 99, 235, 0.4);
+    }
+}
+
+@keyframes rotateRing {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -205,29 +318,55 @@ body {
 
 .identity {
     position: relative;
+
     z-index: 2;
 }
 
 .top-label {
-    font-size: 9px;
-    letter-spacing: 2.2px;
-    font-weight: 700;
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
 
     color: var(--cyan);
 
-    margin-bottom: 5px;
+    margin-bottom: 7px;
 }
+
+.top-label::before {
+    content: "";
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 8px var(--cyan);
+}
+
 
 .identity h1 {
-    font-size: 30px;
+    font-size: 32px;
+
     line-height: 1;
 
-    letter-spacing: -0.8px;
+    letter-spacing: -1px;
+
+    font-weight: 850;
 
     margin-bottom: 7px;
-
-    font-weight: 800;
 }
+
 
 .headline {
     font-size: 11px;
@@ -239,43 +378,55 @@ body {
 
 .headline span {
     color: var(--cyan);
+
     margin: 0 5px;
 }
 
 
 /* =========================================================
-   PROFILE LINKS
+   SOCIAL LINKS
 ========================================================= */
 
 .profile-links {
     display: flex;
-    gap: 8px;
 
-    margin-top: 11px;
+    gap: 7px;
+
+    margin-top: 12px;
 }
 
 .profile-links a {
-    text-decoration: none;
+    display: inline-flex;
 
-    color: white;
-
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    align-items: center;
 
     padding: 5px 10px;
 
     border-radius: 5px;
 
-    font-size: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 
-    transition: 0.2s ease;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    transition: 0.25s ease;
+
+    backdrop-filter: blur(5px);
 }
 
 .profile-links a:hover {
-    border-color: var(--cyan);
-
     color: var(--cyan);
 
-    background: rgba(0, 217, 255, 0.06);
+    border-color: var(--cyan);
+
+    background: rgba(0, 229, 255, 0.08);
+
+    transform: translateY(-2px);
 }
 
 
@@ -284,40 +435,43 @@ body {
 ========================================================= */
 
 .header-info {
-    margin-top: 19px;
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 20px;
 
     display: flex;
+
     align-items: center;
 
-    gap: 24px;
-
-    position: relative;
-    z-index: 2;
+    gap: 22px;
 }
 
 .info-item {
     display: flex;
+
     flex-direction: column;
 
     gap: 3px;
 }
 
 .info-label {
-    font-size: 7px;
+    font-size: 6.5px;
+
+    font-weight: 800;
 
     letter-spacing: 1.5px;
 
-    color: #7dd3fc;
-
-    font-weight: 700;
+    color: #67e8f9;
 }
 
 .info-item strong {
-    font-size: 9px;
-
-    color: #e2e8f0;
+    font-size: 8.5px;
 
     font-weight: 500;
+
+    color: #e2e8f0;
 }
 
 .header-line {
@@ -325,34 +479,61 @@ body {
 
     height: 1px;
 
-    background: rgba(255, 255, 255, 0.12);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.25),
+            rgba(255, 255, 255, 0.05)
+        );
 }
 
 .header-code {
-    font-size: 8px;
+    font-family: monospace;
 
-    color: #7dd3fc;
+    font-size: 7px;
 
     letter-spacing: 1.5px;
 
-    font-weight: 700;
+    color: #67e8f9;
 }
 
 
 /* =========================================================
-   PROFILE
+   PROFILE SECTION
 ========================================================= */
 
 .profile {
-    padding: 16px 30px 14px;
+    padding: 17px 30px 15px;
 
     border-bottom: 1px solid var(--border);
+
+    position: relative;
+}
+
+.profile::after {
+    content: "";
+
+    position: absolute;
+
+    left: 30px;
+    bottom: -1px;
+
+    width: 70px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+        );
 }
 
 .profile p {
-    max-width: 780px;
+    max-width: 760px;
 
-    font-size: 9.5px;
+    font-size: 9px;
 
     line-height: 1.65;
 
@@ -361,7 +542,7 @@ body {
 
 
 /* =========================================================
-   SECTION LABEL
+   SECTION TITLE
 ========================================================= */
 
 .section-label {
@@ -375,23 +556,44 @@ body {
 }
 
 .section-label span {
-    font-size: 8px;
+    min-width: 22px;
+
+    font-family: monospace;
+
+    font-size: 7px;
 
     font-weight: 800;
 
-    color: var(--cyan);
+    color: var(--cyan-2);
 
     letter-spacing: 0.5px;
 }
 
 .section-label h2 {
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 1.5px;
 
-    font-weight: 800;
+    font-weight: 850;
 
     color: var(--navy);
+}
+
+.section-label::after {
+    content: "";
+
+    height: 1px;
+
+    width: 35px;
+
+    margin-left: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #cbd5e1,
+            transparent
+        );
 }
 
 
@@ -410,7 +612,7 @@ body {
 .left-column {
     width: 34%;
 
-    padding: 17px 24px 10px 0;
+    padding: 17px 24px 12px 0;
 
     border-right: 1px solid var(--border);
 }
@@ -418,7 +620,7 @@ body {
 .right-column {
     width: 66%;
 
-    padding: 17px 0 10px 25px;
+    padding: 17px 0 12px 25px;
 }
 
 
@@ -438,7 +640,7 @@ body {
 .education {
     position: relative;
 
-    padding-left: 14px;
+    padding: 2px 0 2px 15px;
 
     border-left: 1px solid #cbd5e1;
 }
@@ -446,34 +648,37 @@ body {
 .timeline-dot {
     position: absolute;
 
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
+
+    left: -4px;
+    top: 3px;
 
     border-radius: 50%;
 
     background: var(--cyan);
 
-    left: -4px;
-    top: 4px;
-
     box-shadow:
-        0 0 8px rgba(0, 217, 255, 0.5);
+        0 0 0 3px white,
+        0 0 10px rgba(0, 229, 255, 0.8);
 }
 
 .period {
-    font-size: 8px;
+    font-family: monospace;
 
-    color: var(--cyan-soft);
+    font-size: 7px;
 
     font-weight: 800;
 
-    letter-spacing: 0.8px;
+    color: var(--cyan-2);
+
+    letter-spacing: 1px;
 
     margin-bottom: 5px;
 }
 
 .education-content h3 {
-    font-size: 10.5px;
+    font-size: 10px;
 
     line-height: 1.3;
 
@@ -483,9 +688,9 @@ body {
 }
 
 .institution {
-    font-size: 9px;
+    font-size: 8.5px;
 
-    font-weight: 700;
+    font-weight: 750;
 
     color: #334155;
 
@@ -493,7 +698,7 @@ body {
 }
 
 .secondary {
-    font-size: 8px;
+    font-size: 7.5px;
 
     color: var(--muted);
 }
@@ -508,13 +713,15 @@ body {
 }
 
 .skill-block h4 {
-    font-size: 7px;
+    font-size: 6.5px;
 
-    letter-spacing: 1.2px;
+    letter-spacing: 1.3px;
 
-    color: var(--muted);
+    color: #94a3b8;
 
     margin-bottom: 5px;
+
+    font-weight: 800;
 }
 
 .skill-list {
@@ -526,19 +733,37 @@ body {
 }
 
 .skill-list span {
-    font-size: 7.5px;
-
     padding: 4px 7px;
 
     border-radius: 4px;
 
-    background: #f1f5f9;
+    border: 1px solid #dce5ee;
 
-    border: 1px solid #e2e8f0;
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef4f8
+        );
 
     color: #334155;
 
-    font-weight: 600;
+    font-size: 7px;
+
+    font-weight: 650;
+
+    transition: 0.2s ease;
+}
+
+.skill-list span:hover {
+    border-color: var(--cyan-2);
+
+    color: #087f96;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 188, 212, 0.12);
 }
 
 
@@ -547,13 +772,40 @@ body {
 ========================================================= */
 
 .experience {
+    position: relative;
+
     padding: 10px;
 
-    background: #f7fafc;
+    border-radius: 7px;
 
-    border: 1px solid var(--border);
+    border: 1px solid #dce5ee;
 
-    border-radius: 6px;
+    background:
+        linear-gradient(
+            135deg,
+            #fbfdff,
+            #f4f8fb
+        );
+
+    overflow: hidden;
+}
+
+.experience::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background:
+        linear-gradient(
+            var(--cyan),
+            var(--blue)
+        );
 }
 
 .experience-heading {
@@ -565,25 +817,27 @@ body {
 }
 
 .experience-heading h3 {
-    font-size: 9.5px;
-
-    color: var(--navy);
+    font-size: 9px;
 
     line-height: 1.3;
+
+    color: var(--navy);
 }
 
 .experience-heading p {
-    font-size: 8px;
+    font-size: 7.5px;
 
-    color: var(--cyan-soft);
+    color: var(--cyan-2);
 
-    font-weight: 700;
+    font-weight: 800;
 
     margin-top: 3px;
 }
 
 .experience-date {
-    font-size: 7px;
+    font-family: monospace;
+
+    font-size: 6.5px;
 
     color: var(--muted);
 
@@ -593,7 +847,7 @@ body {
 .experience-description {
     margin-top: 7px;
 
-    font-size: 7.8px;
+    font-size: 7.4px;
 
     line-height: 1.5;
 
@@ -614,37 +868,53 @@ body {
 
     padding: 9px;
 
-    border: 1px solid var(--border);
+    border: 1px solid #dce5ee;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
     background: #fbfdff;
+
+    transition: 0.25s ease;
+}
+
+.certification:hover {
+    transform: translateX(2px);
+
+    border-color: rgba(0, 188, 212, 0.5);
+
+    box-shadow:
+        0 7px 20px rgba(0, 188, 212, 0.08);
 }
 
 .certificate-mark {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 50%;
+    border-radius: 6px;
 
-    background: #e6faff;
+    background:
+        linear-gradient(
+            135deg,
+            #dffaff,
+            #eaf2ff
+        );
 
     color: #0891b2;
 
     font-size: 10px;
 
-    font-weight: 800;
+    font-weight: 900;
 
     flex-shrink: 0;
 }
 
 .certification h3 {
-    font-size: 8.5px;
+    font-size: 8px;
 
     line-height: 1.35;
 
@@ -652,7 +922,7 @@ body {
 }
 
 .certification p {
-    font-size: 7.5px;
+    font-size: 7px;
 
     color: var(--muted);
 
@@ -673,17 +943,19 @@ body {
 }
 
 .languages span {
-    font-size: 8px;
-
     padding: 5px 9px;
-
-    background: #f1f5f9;
 
     border-radius: 4px;
 
+    background: #f1f5f9;
+
     color: #334155;
 
-    font-weight: 600;
+    font-size: 7.5px;
+
+    font-weight: 650;
+
+    border: 1px solid #e2e8f0;
 }
 
 
@@ -691,18 +963,57 @@ body {
    PROJECTS
 ========================================================= */
 
-.projects-section {
-    margin-bottom: 18px;
-}
-
 .project {
-    padding: 10px 0;
+    position: relative;
+
+    padding: 10px 9px 10px 11px;
+
+    margin-bottom: 5px;
 
     border-bottom: 1px solid #e7edf4;
+
+    transition: 0.25s ease;
+}
+
+.project::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 12px;
+
+    width: 2px;
+    height: 0;
+
+    background: var(--cyan);
+
+    border-radius: 2px;
+
+    transition: 0.25s ease;
+}
+
+.project:hover {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.035),
+            transparent
+        );
+
+    transform: translateX(3px);
+}
+
+.project:hover::before {
+    height: 28px;
 }
 
 .project:first-of-type {
     padding-top: 0;
+}
+
+.project:first-of-type::before {
+    top: 3px;
 }
 
 .project:last-child {
@@ -712,9 +1023,9 @@ body {
 .project-top {
     display: flex;
 
-    align-items: flex-start;
-
     justify-content: space-between;
+
+    align-items: flex-start;
 
     gap: 10px;
 }
@@ -728,9 +1039,11 @@ body {
 }
 
 .project-index {
+    font-family: monospace;
+
     font-size: 7px;
 
-    color: var(--cyan-soft);
+    color: var(--cyan-2);
 
     font-weight: 800;
 
@@ -738,7 +1051,7 @@ body {
 }
 
 .project h3 {
-    font-size: 10px;
+    font-size: 9.5px;
 
     line-height: 1.3;
 
@@ -749,6 +1062,8 @@ body {
     color: inherit;
 
     text-decoration: none;
+
+    transition: 0.2s ease;
 }
 
 .project h3 a:hover {
@@ -756,25 +1071,25 @@ body {
 }
 
 .project h3 small {
-    color: var(--cyan-soft);
+    color: var(--cyan-2);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .project-category {
-    font-size: 6.5px;
-
-    letter-spacing: 1px;
-
-    font-weight: 800;
-
-    color: #64748b;
-
-    border: 1px solid #dbe4ed;
-
     padding: 4px 6px;
 
     border-radius: 4px;
+
+    border: 1px solid #dbe4ed;
+
+    color: #64748b;
+
+    font-size: 6px;
+
+    font-weight: 850;
+
+    letter-spacing: 0.8px;
 
     white-space: nowrap;
 }
@@ -782,7 +1097,7 @@ body {
 .project > p {
     margin: 5px 0 6px 19px;
 
-    font-size: 8px;
+    font-size: 7.6px;
 
     line-height: 1.5;
 
@@ -800,22 +1115,24 @@ body {
 }
 
 .project-tech span {
-    font-size: 6.5px;
-
     padding: 3px 6px;
 
     border-radius: 3px;
 
-    background: #eef8fb;
+    background: #eef9fc;
 
     color: #087f96;
 
-    font-weight: 700;
+    font-size: 6px;
+
+    font-weight: 750;
+
+    border: 1px solid #d8f1f5;
 }
 
 
 /* =========================================================
-   HACKATHONS / ACTIVITIES
+   ACTIVITIES
 ========================================================= */
 
 .activity-list {
@@ -823,7 +1140,7 @@ body {
 
     flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
 }
 
 .activity {
@@ -833,7 +1150,7 @@ body {
 
     gap: 9px;
 
-    padding-bottom: 8px;
+    padding-bottom: 7px;
 
     border-bottom: 1px solid #edf1f5;
 }
@@ -843,27 +1160,31 @@ body {
 }
 
 .activity-id {
-    font-size: 6.5px;
+    font-family: monospace;
 
-    color: var(--cyan-soft);
+    font-size: 6.2px;
 
-    font-weight: 800;
+    color: var(--cyan-2);
 
-    letter-spacing: 0.5px;
+    font-weight: 850;
+
+    letter-spacing: 0.4px;
 
     padding-top: 2px;
 }
 
 .activity h3 {
-    font-size: 8.5px;
-
-    color: var(--navy);
+    font-size: 8px;
 
     line-height: 1.3;
+
+    color: var(--navy);
 }
 
 .activity p {
-    font-size: 7.5px;
+    font-size: 7px;
+
+    line-height: 1.4;
 
     color: var(--muted);
 
@@ -878,27 +1199,43 @@ body {
 .interest-grid {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, 1fr);
 
     gap: 5px;
 }
 
 .interest-grid span {
-    padding: 7px 6px;
+    padding: 7px 5px;
 
     text-align: center;
 
-    background: #f7fafc;
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f1f5f9
+        );
 
     border: 1px solid #e1e8ef;
 
-    border-radius: 5px;
-
-    font-size: 7px;
-
     color: #334155;
 
-    font-weight: 600;
+    font-size: 6.7px;
+
+    font-weight: 650;
+
+    transition: 0.2s ease;
+}
+
+.interest-grid span:hover {
+    border-color: var(--cyan-2);
+
+    color: #087f96;
+
+    transform: translateY(-2px);
 }
 
 
@@ -907,28 +1244,50 @@ body {
 ========================================================= */
 
 .career-focus {
-    margin-top: 18px;
+    position: relative;
 
     display: flex;
 
     gap: 11px;
 
-    padding: 12px;
+    margin-top: 18px;
 
-    border-radius: 7px;
+    padding: 13px;
+
+    border-radius: 8px;
+
+    color: white;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
             135deg,
-            #07111f,
-            #0d2639
+            #050d18,
+            #0b1d31 55%,
+            #0d2b40
         );
 
-    color: white;
+    border: 1px solid rgba(0, 229, 255, 0.12);
 
-    position: relative;
+    box-shadow:
+        0 10px 30px rgba(7, 17, 31, 0.12);
+}
 
-    overflow: hidden;
+.career-focus::before {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    right: -90px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 229, 255, 0.18);
 }
 
 .career-focus::after {
@@ -936,29 +1295,34 @@ body {
 
     position: absolute;
 
-    width: 100px;
-    height: 100px;
+    left: 0;
+    top: 0;
 
-    border-radius: 50%;
+    width: 3px;
+    height: 100%;
 
-    border: 1px solid rgba(0, 217, 255, 0.12);
-
-    right: -30px;
-    bottom: -50px;
+    background:
+        linear-gradient(
+            var(--cyan),
+            var(--blue)
+        );
 }
 
 .career-symbol {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    border-radius: 6px;
+    border-radius: 7px;
 
-    background: rgba(0, 217, 255, 0.12);
+    background:
+        rgba(0, 229, 255, 0.1);
+
+    border: 1px solid rgba(0, 229, 255, 0.15);
 
     color: var(--cyan);
 
@@ -968,31 +1332,31 @@ body {
 }
 
 .career-title {
-    font-size: 6.5px;
+    font-family: monospace;
 
-    letter-spacing: 1.5px;
+    font-size: 6px;
 
     font-weight: 800;
 
-    color: #7dd3fc;
+    letter-spacing: 1.5px;
+
+    color: #67e8f9;
 }
 
 .career-focus h3 {
-    font-size: 9.5px;
+    font-size: 9px;
 
     line-height: 1.4;
 
     margin-top: 4px;
-
-    max-width: 400px;
 }
 
 .career-focus p {
-    font-size: 7.5px;
-
-    color: #aebdcd;
+    font-size: 7px;
 
     line-height: 1.5;
+
+    color: #aebdcd;
 
     margin-top: 4px;
 }
@@ -1003,37 +1367,39 @@ body {
 ========================================================= */
 
 .online {
-    margin-top: 12px;
-
     display: flex;
-
-    justify-content: space-between;
 
     align-items: center;
 
+    justify-content: space-between;
+
     gap: 15px;
+
+    margin-top: 12px;
 
     padding: 10px 12px;
 
-    border: 1px solid var(--border);
+    border-radius: 7px;
 
-    border-radius: 6px;
+    border: 1px solid var(--border);
 
     background: #fbfdff;
 }
 
 .online > div:first-child span {
-    font-size: 6.5px;
+    font-family: monospace;
 
-    color: var(--cyan-soft);
+    font-size: 6px;
 
-    font-weight: 800;
+    font-weight: 850;
 
-    letter-spacing: 1.2px;
+    letter-spacing: 1.3px;
+
+    color: var(--cyan-2);
 }
 
 .online h3 {
-    font-size: 9px;
+    font-size: 8.5px;
 
     color: var(--navy);
 
@@ -1047,8 +1413,6 @@ body {
 }
 
 .online-buttons a {
-    text-decoration: none;
-
     padding: 6px 8px;
 
     border-radius: 4px;
@@ -1057,17 +1421,21 @@ body {
 
     color: white;
 
-    font-size: 7px;
+    text-decoration: none;
 
-    font-weight: 700;
+    font-size: 6.5px;
+
+    font-weight: 750;
 
     transition: 0.2s ease;
 }
 
 .online-buttons a:hover {
-    background: #0f3150;
+    background: #0b2944;
 
     color: var(--cyan);
+
+    transform: translateY(-2px);
 }
 
 
@@ -1076,9 +1444,9 @@ body {
 ========================================================= */
 
 .footer {
-    margin: 0 30px;
+    min-height: 31px;
 
-    min-height: 30px;
+    margin: 0 30px;
 
     display: flex;
 
@@ -1090,7 +1458,7 @@ body {
 
     color: #64748b;
 
-    font-size: 6.5px;
+    font-size: 6.3px;
 
     letter-spacing: 0.7px;
 }
@@ -1098,35 +1466,38 @@ body {
 .footer strong {
     color: var(--navy);
 
-    font-size: 7px;
+    font-size: 6.8px;
 }
 
 .footer-divider {
     width: 3px;
     height: 3px;
 
-    background: var(--cyan);
-
     border-radius: 50%;
+
+    background: var(--cyan);
 }
 
 .footer-year {
     margin-left: auto;
 
-    color: var(--cyan-soft);
+    font-family: monospace;
 
-    font-weight: 800;
+    color: var(--cyan-2);
+
+    font-weight: 850;
 }
 
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE — TABLET
 ========================================================= */
 
 @media (max-width: 900px) {
 
     .resume {
         width: 100%;
+
         min-height: auto;
 
         margin: 0;
@@ -1135,24 +1506,30 @@ body {
     }
 
     .header {
-        padding: 25px 22px 20px;
-    }
-
-    .main-grid {
-        padding: 0 22px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
     .profile {
-        padding-left: 22px;
-        padding-right: 22px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .main-grid {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
     .footer {
-        margin-left: 22px;
-        margin-right: 22px;
+        margin-left: 24px;
+        margin-right: 24px;
     }
 }
 
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
 
 @media (max-width: 700px) {
 
@@ -1160,13 +1537,19 @@ body {
         background: white;
     }
 
+    .header {
+        padding: 22px 18px;
+    }
+
     .header-main {
         align-items: flex-start;
+
+        gap: 15px;
     }
 
     .photo-wrapper {
-        width: 90px;
-        height: 90px;
+        width: 88px;
+        height: 88px;
     }
 
     .identity h1 {
@@ -1174,13 +1557,15 @@ body {
     }
 
     .headline {
+        font-size: 9px;
+
         line-height: 1.5;
     }
 
     .header-info {
         flex-wrap: wrap;
 
-        gap: 12px 20px;
+        gap: 12px 18px;
     }
 
     .header-line {
@@ -1189,6 +1574,9 @@ body {
 
     .main-grid {
         flex-direction: column;
+
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
     .left-column,
@@ -1197,68 +1585,66 @@ body {
     }
 
     .left-column {
+        padding-right: 0;
+
         border-right: none;
 
         border-bottom: 1px solid var(--border);
-
-        padding-right: 0;
     }
 
     .right-column {
         padding-left: 0;
     }
 
+    .profile {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     .interest-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 }
 
 
+/* =========================================================
+   RESPONSIVE — SMALL PHONE
+========================================================= */
+
 @media (max-width: 480px) {
 
-    .header {
-        padding: 20px 17px;
-    }
-
-    .profile {
-        padding-left: 17px;
-        padding-right: 17px;
-    }
-
-    .main-grid {
-        padding: 0 17px;
-    }
-
-    .footer {
-        margin-left: 17px;
-        margin-right: 17px;
-
-        flex-wrap: wrap;
-
-        padding: 8px 0;
-    }
-
     .photo-wrapper {
-        width: 78px;
-        height: 78px;
+        width: 74px;
+        height: 74px;
     }
 
     .identity h1 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .top-label {
-        font-size: 7px;
+        font-size: 6.5px;
+
+        letter-spacing: 1.4px;
     }
 
     .headline {
-        font-size: 8px;
+        font-size: 7.5px;
     }
 
     .profile-links a {
-        font-size: 7px;
-
         padding: 4px 7px;
+
+        font-size: 6.5px;
+    }
+
+    .header-info {
+        gap: 10px 15px;
+    }
+
+    .info-item strong {
+        font-size: 7.5px;
     }
 
     .online {
@@ -1268,23 +1654,37 @@ body {
     }
 
     .activity {
-        grid-template-columns: 55px 1fr;
+        grid-template-columns: 52px 1fr;
+    }
+
+    .footer {
+        margin-left: 18px;
+        margin-right: 18px;
+
+        flex-wrap: wrap;
+
+        padding: 7px 0;
     }
 }
 
 
 /* =========================================================
-   PRINT / A4
+   PRINT / PDF
 ========================================================= */
 
 @media print {
 
     @page {
         size: A4;
+
         margin: 0;
     }
 
+    html,
     body {
+        width: 210mm;
+        min-height: 297mm;
+
         background: white;
     }
 
@@ -1297,23 +1697,17 @@ body {
         box-shadow: none;
     }
 
-    .profile-links a,
-    .online-buttons a {
-        color: inherit;
-    }
-
-    .header {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
-
-    .career-focus {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
-
+    .header,
+    .career-focus,
     .photo-wrapper {
         print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
+    }
+
+    .project:hover,
+    .skill-list span:hover,
+    .interest-grid span:hover,
+    .online-buttons a:hover {
+        transform: none;
     }
 }
